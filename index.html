@@ -5,82 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Espacio ❤️</title>
     <style>
-        body {
-            background-color: #e3f2fd;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
+        body { background-color: #e3f2fd; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
         .interfaz-regalo { max-width: 500px; width: 100%; text-align: center; }
-
-        h1 { color: #3366ff; background-color: #ccffff; display: inline-block; padding: 10px; border-radius: 15px; font-size: 1.8rem; }
-        
+        h1 { color: #3366ff; background-color: #ccffff; display: inline-block; padding: 10px; border-radius: 15px; font-size: 1.6rem; }
         .tabs { margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; }
-        
-        .btn-tab {
-            background: #0288d1;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
+        .btn-tab { background: #0288d1; color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
         .btn-tab:hover { background: #01579b; transform: scale(1.1); }
-
-        .ventana {
-            display: none; /* Se ocultan por defecto */
-            background: white;
-            padding: 25px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 15px;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        /* Esta es la clase que hace que la pestaña se vea */
+        .ventana { display: none; background: white; padding: 25px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 15px; animation: fadeIn 0.4s ease-in-out; }
         .visible { display: block !important; }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .frasco-wrapper {
-            background: #ffffff99;
-            border: 4px solid #0288d1;
-            border-radius: 20px 20px 80px 80px;
-            width: 240px;
-            min-height: 200px;
-            margin: 20px auto;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: center;
-        }
-
+        .frasco-wrapper { background: #ffffff99; border: 4px solid #0288d1; border-radius: 20px 20px 80px 80px; width: 260px; min-height: 220px; margin: 20px auto; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; align-content: center; }
         .emoji-click { font-size: 1.8rem; cursor: pointer; margin: 6px; transition: transform 0.2s; user-select: none; }
         .emoji-click:hover { transform: scale(1.4) rotate(15deg); }
-
-        .mensaje-display {
-            font-weight: bold;
-            color: #d81b60;
-            margin-top: 20px;
-            min-height: 60px;
-            padding: 15px;
-            border-top: 1px dashed #0288d1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .mensaje-display { font-weight: bold; color: #d81b60; margin-top: 20px; min-height: 60px; padding: 15px; border-top: 1px dashed #0288d1; display: flex; align-items: center; justify-content: center; }
         .polaroid { background: white; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); margin-bottom: 25px; }
         .polaroid img { width: 100%; height: auto; }
-        
         ol { text-align: left; background: #f1f8ff; padding: 25px 40px; border-radius: 20px; }
     </style>
 </head>
@@ -99,11 +38,14 @@
 
     <div id="inicio" class="ventana visible">
         <h4><u><em>¡Hola, mi palito bombón!</em></u></h4>
-        <p>He creado este lugar digital para que siempre tengas un rinconcito donde refugiarte cuando me extrañes. 😊</p>
+        <p style="color: #000080;">He creado este lugar digital para que siempre tengas un rinconcito donde refugiarte cuando me extrañes. 😊</p>
+        <p style="color: #000080;">Explora las pestañas de arriba para descubrir las sorpresas.</p>
+        <p style="color: #000080;">También por si quieres leer todas las chucherías que hago por vos y algunos recuerdos que tengo cada tanto.</p>
+        <p style="color: #000080;">La verdad es que amo mucho y me cuesta no pensarte y me gusta darte detalles, aunque pequeños para mi requiere tiempo, paciencia y aprendizajes. 💋</p>
     </div>
 
     <div id="recordatorio" class="ventana">
-        <h3>Recordatorio de lo que vales</h3>
+        <h3>Pequeño recordatorio de lo que vales</h3>
         <ol type="I">
             <li>Extraño como me besas de noche</li>
             <li>Me gustan tus abrazos</li>
@@ -114,26 +56,42 @@
     </div>
 
     <div id="frasco-amor" class="ventana">
-        <h3>Frasco de Pensamientos</h3>
+        <h3>Frasco de Mensajes</h3>
+        <p>Toca un corazón para sacar un pensamiento:</p>
         <div class="frasco-wrapper">
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-amor', frasesAmor)">💖</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-amor', frasesAmor)">💝</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-amor', frasesAmor)">💗</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-amor', frasesAmor)">💓</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💖</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💝</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💗</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💓</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💘</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💕</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💖</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💝</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💗</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💓</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💘</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💕</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💖</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💝</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💗</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💓</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-amor', frasesAmor)">💘</span>
         </div>
-        <div id="mensaje-amor" class="mensaje-display">Toca un corazón...</div>
+        <div id="msg-amor" class="mensaje-display">¿Qué dirá hoy?</div>
     </div>
 
     <div id="por-nosotros" class="ventana">
         <h3>Por nosotros ✨</h3>
+        <p>Toca un emoji para ver un deseo:</p>
         <div class="frasco-wrapper">
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-nosotros', frasesNosotros)">🌟</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-nosotros', frasesNosotros)">🍭</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-nosotros', frasesNosotros)">🎬</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-nosotros', frasesNosotros)">🎨</span>
-            <span class="emoji-click" onclick="mostrarMensaje('mensaje-nosotros', frasesNosotros)">🎤</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-nos', frasesNosotros)">🌟</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-nos', frasesNosotros)">🍭</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-nos', frasesNosotros)">🎬</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-nos', frasesNosotros)">🍯</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-nos', frasesNosotros)">🎨</span>
+            <span class="emoji-click" onclick="mostrarMensaje('msg-nos', frasesNosotros)">🎤</span>
         </div>
-        <div id="mensaje-nosotros" class="mensaje-display">¿Qué saldrá?</div>
+        <div id="msg-nos" class="mensaje-display">¿Qué saldrá?</div>
     </div>
 
     <div id="galeria" class="ventana">
@@ -150,54 +108,38 @@
 </div>
 
 <script>
-    // ESTA FUNCIÓN ES LA QUE CAMBIA LAS PESTAÑAS
-    function abrir(idSeccion) {
-        // 1. Buscamos todas las secciones y las ocultamos
-        const secciones = document.querySelectorAll('.ventana');
-        secciones.forEach(sec => {
-            sec.classList.remove('visible');
-        });
-
-        // 2. Mostramos solo la sección que tiene el ID que recibimos
-        const seccionAMostrar = document.getElementById(idSeccion);
-        if (seccionAMostrar) {
-            seccionAMostrar.classList.add('visible');
-        }
+    function abrir(id) {
+        document.querySelectorAll('.ventana').forEach(v => v.classList.remove('visible'));
+        document.getElementById(id).classList.add('visible');
     }
 
     const frasesAmor = [
-        "Vale por un beso interminable. 💋",
-        "Gracias por hacerme tan feliz cada día. ✨",
-        "Eres mi persona favorita en el mundo entero. 🌎",
-        "Amo cada pequeño detalle de ti. ❤️",
-        "¡Eres el mejor regalo que me dio la vida! 🎁"
+        "Vale por un beso interminable. 💋", "Gracias por hacerme tan feliz cada día. ✨",
+        "Eres mi persona favorita en el mundo entero. 🌎", "Amo cada pequeño detalle de ti. ❤️",
+        "¡Eres el mejor regalo que me dio la vida! 🎁", "Sos la personita más dulce que conozco. 🍭",
+        "Amo cuando me miras y sonreís. 😊", "Vale por una tarde de mimos sin fin. 🐾",
+        "Sos mi refugio favorito. 🏠", "Gracias por tenerme tanta paciencia. 💕",
+        "Me encanta cómo me hacés sentir. 💖", "Sos mucho más de lo que alguna vez soñé. ✨",
+        "Amo compartir mis días con vos. ☀️", "Vale por tu comida favorita hecha por mí. 🍕",
+        "Tu felicidad es la mía también. 🥰", "Sos increíble, nunca lo olvides. 💎",
+        "Te amo hoy, mañana y siempre. 🌹"
     ];
 
     const frasesNosotros = [
-        "vale por un secreto",
-        "vale por unos masajes",
-        "me gustan tus ojitos",
-        "amo tus destalles",
-        "gracias por hacerme sentir amada cada dia",
-        "hacemos postrecito",
-        "me gusta rascarme con tu bigote",
-        "dibujar juntos",
-        "cantar solos",
-        "ver una peli",
-        "te extraño todos los dias",
-        "me haces muuuuuuuy feliz"
+        "vale por un secreto", "vale por unos masajes", "me gustan tus ojitos",
+        "amo tus destalles", "gracias por hacerme sentir amada cada dia", "hacemos postrecito",
+        "me gusta rascarme con tu bigote", "dibujar juntos", "cantar solos",
+        "ver una peli", "te extraño todos los dias", "me haces muuuuuuuy feliz"
     ];
 
-    function mostrarMensaje(idContenedor, lista) {
-        const display = document.getElementById(idContenedor);
+    function mostrarMensaje(id, lista) {
+        const display = document.getElementById(id);
         display.style.opacity = 0;
         setTimeout(() => {
-            const randomMsg = lista[Math.floor(Math.random() * lista.length)];
-            display.innerText = randomMsg;
+            display.innerText = lista[Math.floor(Math.random() * lista.length)];
             display.style.opacity = 1;
         }, 150);
     }
 </script>
-
 </body>
 </html>
