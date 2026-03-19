@@ -18,9 +18,16 @@
         .emoji-click { font-size: 1.8rem; cursor: pointer; margin: 6px; transition: transform 0.2s; user-select: none; }
         .emoji-click:hover { transform: scale(1.4) rotate(15deg); }
         .mensaje-display { font-weight: bold; color: #d81b60; margin-top: 20px; min-height: 60px; padding: 15px; border-top: 1px dashed #0288d1; display: flex; align-items: center; justify-content: center; }
-        .polaroid { background: white; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); margin-bottom: 25px; }
-        .polaroid img { width: 100%; height: auto; }
+        .polaroid { background: white; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); margin-bottom: 25px; transition: 0.3s; }
+        .polaroid img { width: 100%; height: auto; border: 1px solid #eee; }
+        .polaroid p { font-family: 'Courier New', monospace; font-weight: bold; margin-top: 15px; color: #555; font-size: 0.9rem; }
         ol { text-align: left; background: #f1f8ff; padding: 25px 40px; border-radius: 20px; }
+
+        /* Estilos para el Álbum Interactivo */
+        .controles-album { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        .btn-foto { background: #f1f8ff; color: #0288d1; border: 2px solid #0288d1; padding: 8px 12px; border-radius: 50%; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .btn-foto:hover, .btn-foto.activo { background: #0288d1; color: white; transform: scale(1.1); }
+        #visor-album { max-width: 350px; margin: 20px auto; opacity: 1; transition: opacity 0.3s ease-in-out; }
     </style>
 </head>
 <body>
@@ -34,6 +41,7 @@
         <button class="btn-tab" onclick="abrir('frasco-amor')">Frasco de Amor</button>
         <button class="btn-tab" onclick="abrir('por-nosotros')">Por nosotros</button>
         <button class="btn-tab" onclick="abrir('galeria')">Galería</button>
+        <button class="btn-tab" onclick="abrir('album')">Nuestro Álbum 📸</button>
     </div>
 
     <div id="inicio" class="ventana visible">
@@ -105,6 +113,27 @@
             <p>Tus besos 7w7 son tan lindos</p>
         </div>
     </div>
+
+    <div id="album" class="ventana">
+        <h3>Nuestro Álbum Interactivo 📸</h3>
+        <p>Toca los números para ver nuestras fotos:</p>
+        
+        <div id="visor-album" class="polaroid">
+            <img id="foto-actual" src="https://i.postimg.cc/7ZnRD4cG/IMG-20251010-WA0052.jpg" alt="Nuestra foto">
+            <p id="texto-actual">¡Amo esos ojitos tan lindos! ✨</p>
+        </div>
+
+        <div class="controles-album">
+            <button class="btn-foto activo" onclick="cambiarFoto(0, this)">1</button>
+            <button class="btn-foto" onclick="cambiarFoto(1, this)">2</button>
+            <button class="btn-foto" onclick="cambiarFoto(2, this)">3</button>
+            <button class="btn-foto" onclick="cambiarFoto(3, this)">4</button>
+            <button class="btn-foto" onclick="cambiarFoto(4, this)">5</button>
+            <button class="btn-foto" onclick="cambiarFoto(5, this)">6</button>
+            <button class="btn-foto" onclick="cambiarFoto(6, this)">7</button>
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -140,6 +169,57 @@
             display.style.opacity = 1;
         }, 150);
     }
+
+    // --- LÓGICA DEL ÁLBUM INTERACTIVO CON TUS 7 FOTOS ---
+
+    const fotosAlbum = [
+        {
+            url: "https://i.postimg.cc/7ZnRD4cG/IMG-20251010-WA0052.jpg", 
+            texto: "¡Amo esos ojitos tan lindos! ✨"
+        },
+        {
+            url: "https://i.postimg.cc/k40sKYzJ/IMG_20251022_WA0036.jpg", 
+            texto: "Esos abrazos son mi refugio favorito. 🤗"
+        },
+        {
+            url: "https://i.postimg.cc/DwwrJK0G/IMG_20260110_WA0017.jpg", 
+            texto: "Me gusta rascarme con tu bigote... 7w7 💋"
+        },
+        {
+            url: "https://i.postimg.cc/dVV2kK3q/IMG_20251219_WA0109.jpg",
+            texto: "Te extraño todos los días, mi vida. 💖"
+        },
+        {
+            url: "https://i.postimg.cc/Vkkqrcvb/IMG_20251212_WA0107.jpg",
+            texto: "Gracias por hacerme tan feliz cada día.💎"
+        },
+        {
+            url: "https://i.postimg.cc/cLLRgNCv/IMG_20251002_WA0074.jpg",
+            texto: "Amo compartir mis días con vos.☀️"
+        },
+        {
+            url: "https://i.postimg.cc/Ghh8zxRw/IMG-20260312-WA0167(1).jpg",
+            texto: "Hacemos un postrecito juntos...🥞🍰"
+        }
+    ];
+
+    function cambiarFoto(indice, boton) {
+        const visor = document.getElementById('visor-album');
+        const imgActual = document.getElementById('foto-actual');
+        const txtActual = document.getElementById('texto-actual');
+
+        visor.style.opacity = 0;
+
+        setTimeout(() => {
+            imgActual.src = fotosAlbum[indice].url;
+            txtActual.innerText = fotosAlbum[indice].texto;
+            visor.style.opacity = 1;
+
+            document.querySelectorAll('.btn-foto').forEach(b => b.classList.remove('activo'));
+            boton.classList.add('activo');
+        }, 300);
+    }
+
 </script>
 </body>
 </html>
