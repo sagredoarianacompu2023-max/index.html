@@ -236,7 +236,7 @@
         canvas.addEventListener('touchstart', e => { isMoving = true; updatePos(e); pMouseX = mouseX; pMouseY = mouseY; }, {passive: false});
         canvas.addEventListener('touchmove', e => { updatePos(e); e.preventDefault(); }, {passive: false});
         canvas.addEventListener('touchend', () => isMoving = false);
-
+        
         resize();
         draw();
     </script>
